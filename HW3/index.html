@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>PROG 209 HW3 by Marcus and Ian</title>
+</head>
+<body class="center">
+    <main>
+        <h1 class="center">HW 3 - Customer Movies</h1>
+        <p>Enter a movie title, year of release, and rating to add to your list of movies</p>
+
+        <form name="myForm"> <!--For user input-->
+            <label>Title:</label>
+            <input placeholder="Resident Evil (film)" autofocus name="movieName"></input>
+            <label>Year:</label>
+            <input placeholder="2002" name="year" type="number"></input>
+            <label>Rating:</label>
+            <input placeholder="2" name="rating" type="number"></input>
+            <div class="center">
+                <button type="reset" onclick="validateForm()">Add Movie</button>
+                <button type="reset" onclick="showMovie()">Show Movie List</button>
+            </div>
+        </form>
+        <div class="center">
+			<table id="moviesTable" style="display: none;">
+			  <tr>
+				<th>Movie</th>
+				<th>Rating</th>
+			  </tr>
+			</table>
+        </div>
+    </main>
+</body>
+<footer class="center">
+    Created by Marcus Lazaro and Ian Olson 2022
+</footer>
+</html>

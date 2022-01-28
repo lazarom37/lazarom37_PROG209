@@ -1,3 +1,46 @@
 ul {
     color:red
 }
+
+#moviesTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#moviesTable td, #moviesTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#moviesTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#moviesTable tr:hover {background-color: #ddd;}
+
+#moviesTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5050FF;
+  color: white;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+form{
+  background: linear-gradient(
+
+    rgb(255, 255, 255),
+    rgb(110, 255, 255)
+);
+padding: 10px;
+}
