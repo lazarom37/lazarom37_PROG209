@@ -2,7 +2,7 @@ let noteArray = [];
 let selectedType = "";
 
 // define a constructor to create note objects
-let NoteObject = function (pData, pType, pYear) {
+let MovieObject = function (pData, pType, pYear) {
     this.data = pData;
     this.type = pType;
     this.year = pYear;
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     document.getElementById("buttonAdd").addEventListener("click", function () {
 
-        noteArray.push(new NoteObject(document.getElementById("movie").value, selectedType, document.getElementById("year").value));
+        noteArray.push(new MovieObject(document.getElementById("movie").value, selectedType, document.getElementById("year").value));
         console.log(noteArray);
         document.getElementById("movie").value = "";
     });
