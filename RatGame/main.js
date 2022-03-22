@@ -19,7 +19,7 @@ let ratImage = new Image();
 ratImage.onload = function () {
     ratReady = true;
 };
-ratImage.src = "images/rat.png";
+ratImage.src = "images/rat2.png";
 
 // cheese image
 let cheeseReady = false;
@@ -140,9 +140,9 @@ let update = function (modifier) {
     // rat + cheese detection
     if (
         rat.x <= (cheese0.x + 64)
-        && cheese0.x <= (rat.x + 32)
+        && cheese0.x <= (rat.x + 62)
         && rat.y <= (cheese0.y + 64)
-        && cheese0.y <= (rat.y + 32)
+        && cheese0.y <= (rat.y + 42)
     ) {
         ++cheeseOnHand;
         cheese0.x = -200;
@@ -151,9 +151,9 @@ let update = function (modifier) {
     if (
 
         rat.x <= (cheese1.x + 64)
-        && cheese1.x <= (rat.x + 32)
+        && cheese1.x <= (rat.x + 62)
         && rat.y <= (cheese1.y + 64)
-        && cheese1.y <= (rat.y + 32)
+        && cheese1.y <= (rat.y + 42)
 
     ) {
         ++cheeseOnHand;
@@ -164,36 +164,35 @@ let update = function (modifier) {
     // rat + ratHome detection
     if (
         rat.x <= (ratHome.x + 64)
-        && ratHome.x <= (rat.x + 32)
+        && ratHome.x <= (rat.x + 62)
         && rat.y <= (ratHome.y + 64)
-        && ratHome.y <= (rat.y + 32)
+        && ratHome.y <= (rat.y + 42)
         && cheeseOnHand >= 1
     ) {
 
         cheeseCollected = cheeseCollected + cheeseOnHand; // Earned points
-        cheeseOnHand
         soundEfx.src = "sounds/squeak.mp3"
         soundEfx.play();
-        timeleft = timeleft + 2;
+        timeleft = timeleft + 3;
         reset(); // start a new cycle
     }
 
     // rat + trap detection
     if (
         rat.x <= (trap0.x + 64)
-        && trap0.x <= (rat.x + 32)
+        && trap0.x <= (rat.x + 62)
         && rat.y <= (trap0.y + 18)
-        && trap0.y <= (rat.y + 32)
+        && trap0.y <= (rat.y + 42)
 
         || rat.x <= (trap1.x + 64)
-        && trap1.x <= (rat.x + 32)
+        && trap1.x <= (rat.x + 62)
         && rat.y <= (trap1.y + 18)
-        && trap1.y <= (rat.y + 32)
+        && trap1.y <= (rat.y + 42)
 
         || rat.x <= (trap2.x + 64)
-        && trap2.x <= (rat.x + 32)
+        && trap2.x <= (rat.x + 62)
         && rat.y <= (trap2.y + 18)
-        && trap2.y <= (rat.y + 32)
+        && trap2.y <= (rat.y + 42)
     ) {
         GameOver("caught");
     }
@@ -249,53 +248,53 @@ let reset = function () {
 
     //Place the ratHome somewhere on the screen randomly
     // but not in the hedges, Article in wrong, the 64 needs to be
-    // hedge 32 + hedge 32 + char 32 = 96
-    ratHome.x = 32 + (Math.random() * (canvas.width - 96));
-    ratHome.y = 32 + (Math.random() * (canvas.height - 96));
+    // hedge 64 + hedge 64 + char 64 = 96
+    ratHome.x = 64 + (Math.random() * (canvas.width - 96));
+    ratHome.y = 64 + (Math.random() * (canvas.height - 96));
 
-    cheese0.x = 32 + (Math.random() * (canvas.width - 96));
-    cheese0.y = 32 + (Math.random() * (canvas.height - 96));
-    cheese1.x = 32 + (Math.random() * (canvas.width - 96));
-    cheese1.y = 32 + (Math.random() * (canvas.height - 96));
+    cheese0.x = 64 + (Math.random() * (canvas.width - 96));
+    cheese0.y = 64 + (Math.random() * (canvas.height - 96));
+    cheese1.x = 64 + (Math.random() * (canvas.width - 96));
+    cheese1.y = 64 + (Math.random() * (canvas.height - 96));
 
-    trap0.x = 32 + (Math.random() * (canvas.width - 96));
-    trap0.y = 32 + (Math.random() * (canvas.height - 96));
-    trap1.x = 32 + (Math.random() * (canvas.width - 96));
-    trap1.y = 32 + (Math.random() * (canvas.height - 96));
-    trap2.x = 32 + (Math.random() * (canvas.width - 96));
-    trap2.y = 32 + (Math.random() * (canvas.height - 96));
+    trap0.x = 64 + (Math.random() * (canvas.width - 96));
+    trap0.y = 64 + (Math.random() * (canvas.height - 96));
+    trap1.x = 64 + (Math.random() * (canvas.width - 96));
+    trap1.y = 64 + (Math.random() * (canvas.height - 96));
+    trap2.x = 64 + (Math.random() * (canvas.width - 96));
+    trap2.y = 64 + (Math.random() * (canvas.height - 96));
 
     //makes sure nothing renders on top of the rat
     if (
         rat.x <= (trap0.x + 64)
-        && trap0.x <= (rat.x + 32)
+        && trap0.x <= (rat.x + 62)
         && rat.y <= (trap0.y + 18)
-        && trap0.y <= (rat.y + 32)
+        && trap0.y <= (rat.y + 42)
 
         || rat.x <= (trap1.x + 64)
-        && trap1.x <= (rat.x + 32)
+        && trap1.x <= (rat.x + 62)
         && rat.y <= (trap1.y + 18)
-        && trap1.y <= (rat.y + 32)
+        && trap1.y <= (rat.y + 42)
 
         || rat.x <= (trap2.x + 64)
-        && trap2.x <= (rat.x + 32)
+        && trap2.x <= (rat.x + 62)
         && rat.y <= (trap2.y + 18)
-        && trap2.y <= (rat.y + 32)
+        && trap2.y <= (rat.y + 42)
 
         || rat.x <= (ratHome.x + 64)
-        && ratHome.x <= (rat.x + 32)
+        && ratHome.x <= (rat.x + 62)
         && rat.y <= (ratHome.y + 64)
-        && ratHome.y <= (rat.y + 32)
+        && ratHome.y <= (rat.y + 42)
 
         || rat.x <= (cheese0.x + 64)
-        && cheese0.x <= (rat.x + 32)
+        && cheese0.x <= (rat.x + 62)
         && rat.y <= (cheese0.y + 64)
-        && cheese0.y <= (rat.y + 32)
+        && cheese0.y <= (rat.y + 42)
 
         || rat.x <= (cheese1.x + 64)
-        && cheese1.x <= (rat.x + 32)
+        && cheese1.x <= (rat.x + 62)
         && rat.y <= (cheese1.y + 64)
-        && cheese1.y <= (rat.y + 32)
+        && cheese1.y <= (rat.y + 42)
     ) {
         reset();
     }
@@ -306,7 +305,7 @@ let GameOver = function (condition) {
     if (condition === "caught") {
         alert("[GAME OVER] You got caught by the trap! You've collected " + cheeseCollected + " pieces of cheese.");
         timeleft = -1;
-    } else {
+    } else if (condition = null){
         alert("[GAME OVER] Times up! You've collected " + cheeseCollected + " pieces of cheese.");
     }
     soundEfx.src = "sounds/bosspain.wav"
