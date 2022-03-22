@@ -1,3 +1,19 @@
+// This is a game about a rat who is gathering cheese back to their home to eat.
+// Your goal is to gather as much cheese before the timer runs out while avoiding mouse traps. 
+// Think carefully if you want to commit to collecting both pieces of cheese
+
+// You earn +2 seconds every time you gather cheese back to your home
+// Achievements are awarded to the player throughout the game.
+// You are man's worst enemy. How long until you fall for their traps?
+
+// Sprites and background were originally made by me with Photoshop
+// Sound sources:
+//      squeak.mp3 <=== https://www.myinstants.com/instant/undertale-squeak/
+//      bosspain.wav <=== https://www.mariomayhem.com/downloads/sounds/super_mario_land_sound_effects.php
+
+// Created by Marcus Lazaro, code based of HeroMonsterGame. Winter 2022, Bellevue College
+
+
 // Create the canvas
 let canvas = document.createElement("canvas");
 let ctx = canvas.getContext("2d");
@@ -225,6 +241,14 @@ let render = function () {
     ctx.textBaseline = "top";
     ctx.fillText("Score: " + cheeseCollected, 32, 32);
     ctx.fillText("On hand: " + cheeseOnHand, 32, 64);
+    // Achievement badges :)
+    if (cheeseCollected >= 25) {
+        ctx.fillText("25 POINT MILESTONE !", 32, 96);
+    } else if (cheeseCollected >= 50) {
+        ctx.fillText("50 POINT MILESTONE !!", 32, 128);
+    } else if (cheeseCollected >= 100) {
+        ctx.fillText("100 POINT MILESTONE !!! (Wow, I didn't think anyone would play for this long c:)", 32, 128);
+    }
 
 }
 
@@ -305,7 +329,7 @@ let GameOver = function (condition) {
     if (condition === "caught") {
         alert("[GAME OVER] You got caught by the trap! You've collected " + cheeseCollected + " pieces of cheese.");
         timeleft = -1;
-    } else if (condition = null){
+    } else if (condition = null) {
         alert("[GAME OVER] Times up! You've collected " + cheeseCollected + " pieces of cheese.");
     }
     soundEfx.src = "sounds/bosspain.wav"
