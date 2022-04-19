@@ -244,9 +244,11 @@ let render = function () {
     // Achievement badges :)
     if (cheeseCollected >= 25) {
         ctx.fillText("25 POINT MILESTONE !", 32, 96);
-    } else if (cheeseCollected >= 50) {
+    }
+    if (cheeseCollected >= 50) {
         ctx.fillText("50 POINT MILESTONE !!", 32, 128);
-    } else if (cheeseCollected >= 100) {
+    }
+    if (cheeseCollected >= 100) {
         ctx.fillText("100 POINT MILESTONE !!! (Wow, I didn't think anyone would play for this long c:)", 32, 128);
     }
 
@@ -331,6 +333,7 @@ let GameOver = function (condition) {
         timeleft = -1;
     } else if (condition = null) {
         alert("[GAME OVER] Times up! You've collected " + cheeseCollected + " pieces of cheese.");
+        timeleft = -1;
     }
     soundEfx.src = "sounds/bosspain.wav"
     soundEfx.play();
